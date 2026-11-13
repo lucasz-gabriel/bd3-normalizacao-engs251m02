@@ -8,5 +8,5 @@ Lista montada a partir dos forks (atualizada em 13/11/2026, 07h45). Cada equipe 
 | [mrvinicius25/bd1-normalizacao-engs251m02](https://github.com/mrvinicius25/bd1-normalizacao-engs251m02) | a preencher | a preencher | Fork criado, nada feito |
 | [Dellosofelipe/bd1-normalizacao-engs251m02](https://github.com/Dellosofelipe/bd1-normalizacao-engs251m02) | a preencher | a preencher | Fork criado, nada feito |
 | [cleciofjur/bd1-normalizacao-engs251m02](https://github.com/cleciofjur/bd1-normalizacao-engs251m02) | 4 – Eventos | Clecio Júnior, Denys Kauã, Eluana Ferreira, João Vitor, Marcos Vinicius, Raymond Barbosa, Tais Yasmin | Fork criado, nada feito; integrantes informados no "About" do fork (falta matrícula e usuário do GitHub; tabela da pasta em branco) |
-|[lucasz-gabriel/bd3-normalizacao-engs251m02](https://github.com/lucasz-gabriel/bd3-normalizacao-engs251m02)|3 - Evento| Fernando Lima,Italo Pereira,Gabriel Mayck, Lucas Roque, Lucas Trindade, Murilo Camurça, Paulo Gabriel, Marcos Gabriel. 
+|[lucasz-gabriel/bd3-normalizacao-engs251m02](https://github.com/lucasz-gabriel/bd3-normalizacao-engs251m02)|3 - Biblioteca| Fernando Lima,Italo Pereira,Gabriel Mayck, Lucas Roque, Lucas Trindade, Murilo Camurça, Paulo Gabriel, Marcos Gabriel. 
 
