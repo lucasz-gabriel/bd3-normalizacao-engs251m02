@@ -1,14 +1,16 @@
 # Equipe 3: Biblioteca Saber
 
-**Nome do time:** ____________________
+**Nome do time:** Equipe Murilo
 
 | Nome | Usuário do GitHub |
-| --- | --- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Lucas Roque | [Roque](https://github.com/lucasz-gabriel) |
+| Paulo Gabriel |[Paulo](https://github.com/paulogabriel-KH) |
+| Marcos Gabriel|[Marcos](https://github.com/Marcos-Mousinho) |
+| Ítalo Pereira |[Ítalo](https://github.com/Italo-P) |
+| Gabriel Mayck |[Mayck](https://github.com/gabriel-mayck) |
+| Lucas Trindade |[Trindade](https://github.com/Lucasxo1) |
+| Fernando Lima |[Fernando](https://github.com/Unando1337) |
+| Murilo Camurça |[Murilo](https://github.com/mcamurca1) |
 
 ## O cenário
 
