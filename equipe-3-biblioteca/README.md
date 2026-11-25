@@ -51,6 +51,7 @@ A planilha da Biblioteca Saber apresenta anomalias porque reúne informações d
 
 **Dependências totais:** Nenhum atributo não-chave depende exclusivamente da chave composta completa. As dependências identificadas são parciais ou transitivas.
 
+**Observação sobre os telefones:** O campo `telefones` apresenta valores múltiplos. Por exemplo, Pedro Costa possui dois números armazenados no mesmo campo, separados por ponto e vírgula. Isso precisa ser corrigido na 1FN, separando os telefones em registros individuais.
 
 ## 3. Normalização passo a passo
 
