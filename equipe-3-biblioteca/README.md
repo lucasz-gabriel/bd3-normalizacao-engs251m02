@@ -26,13 +26,15 @@ O sistema da Biblioteca Saber hoje é uma planilha. Rode o `00_planilha.sql` no 
 
 ## 1. Anomalias
 
-[Usando linhas reais da `planilha`, dê um exemplo de cada anomalia.]
+
+A planilha da Biblioteca Saber apresenta anomalias porque reúne informações de empréstimos, leitores, cursos, livros e editoras em uma única tabela, causando repetição de dados.
 
 | Anomalia | Exemplo na planilha |
 | --- | --- |
-| Inserção |  |
-| Exclusão |  |
-| Modificação |  |
+| Inserção | O livro Direito Civil (ISBN 978-85-03) aparece associado ao empréstimo 9002. Se fosse necessário cadastrá-lo antes de qualquer empréstimo, os campos do empréstimo ficariam vazios. |
+| Exclusão | Ao excluir o empréstimo 9002, também perderíamos os dados da leitora Lara Mendes e do curso de Direito, pois aparecem somente nesse registro. |
+| Modificação | A editora Alta Books aparece em quatro registros. Se seu nome mudar, será necessário atualizar todas as ocorrências para evitar informações inconsistentes. |
+
 
 ## 2. Dependências funcionais da `planilha`
 
