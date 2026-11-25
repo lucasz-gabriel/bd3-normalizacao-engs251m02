@@ -1,11 +1,8 @@
 -- Cenário 3: Biblioteca Saber
 -- 01_ddl.sql: tabelas normalizadas (3FN, FNBC e 4FN) com PKs e FKs.
--- Rode DEPOIS do 00_planilha.sql (que cria o banco e as planilhas originais).
--- A carga dos dados fica no 02_migracao.sql.
 
 USE normalizacao_biblioteca;
 
--- Remove as tabelas normalizadas (ordem inversa das dependências)
 DROP TABLE IF EXISTS livro_autor;
 DROP TABLE IF EXISTS livro_palavra_chave;
 DROP TABLE IF EXISTS emprestimo_livro;
