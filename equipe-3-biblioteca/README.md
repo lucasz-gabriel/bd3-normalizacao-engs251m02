@@ -101,8 +101,16 @@ A regra de um único bibliotecário por leitor em cada área deverá ser garanti
 
 ## 5. 4FN: `planilha_4fn`
 
-- Dependências multivaloradas: [ ]
-- Decomposição: [ ]
+-Dependências multivaloradas: isbn →→ autor e isbn →→ palavra_chave. Cada livro tem vários autores e várias palavras-chave, independentes entre si, e isbn não é superchave da tabela original, violando a Quarta Forma Normal.
+
+-Decomposição: A tabela original foi dividida em duas tabelas:
+-livro_autor(isbn, autor) — PK composta: (isbn, autor) e FK: isbn.
+
+-livro_palavra_chave(isbn, palavra_chave) — PK composta: (isbn, palavra_chave) e FK: isbn.
+
+A decomposição permite reconstruir os dados originais por junção pelo isbn, sem perda de informação, eliminando a redundância causada pelas combinações repetidas de autor e palavra-chave.
+
+Os testes realizados no MySQL retornaram 4 registros na primeira tabela e 7 registros na segunda.
 
 ## 6. Modelagem
 
