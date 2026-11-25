@@ -38,11 +38,19 @@ A planilha da Biblioteca Saber apresenta anomalias porque reúne informações d
 
 ## 2. Dependências funcionais da `planilha`
 
+
 | Determinante | Determina | Tipo (total, parcial ou transitiva) |
 | --- | --- | --- |
-|  |  |  |
+| cod_emprestimo | data_emprestimo, matricula_leitor, data_devolucao | Parcial |
+| isbn | titulo, cod_editora | Parcial |
+| matricula_leitor | nome_leitor, telefones, cod_curso | Transitiva em relação à chave |
+| cod_curso | nome_curso | Transitiva em relação à chave |
+| cod_editora | editora | Transitiva em relação à chave |
 
-**Chave primária da `planilha`:** [ ]
+**Chave primária proposta da `planilha`:** (`cod_emprestimo`, `isbn`).
+
+**Dependências totais:** Nenhum atributo não-chave depende exclusivamente da chave composta completa. As dependências identificadas são parciais ou transitivas.
+
 
 ## 3. Normalização passo a passo
 
