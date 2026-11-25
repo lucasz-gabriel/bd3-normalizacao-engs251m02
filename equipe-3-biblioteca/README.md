@@ -55,13 +55,32 @@ A planilha da Biblioteca Saber apresenta anomalias porque reúne informações d
 
 ## 3. Normalização passo a passo
 
-**1FN:** [o que não era atômico e como ficou]
+**1FN:** O campo `telefones` guardava mais de um valor na mesma célula (por exemplo, dois números de Pedro Costa separados por ponto e vírgula), então não era atômico. Cada número passou a ocupar um registro próprio, na tabela `leitor_telefone(matricula_leitor, telefone)`, com PK composta (`matricula_leitor`, `telefone`). Os demais atributos já eram atômicos e a planilha ficou sem grupos repetidos.
 
-**2FN:** [quais dependências parciais e como ficou]
+**2FN:** A chave primária é composta (`cod_emprestimo`, `isbn`), e dois grupos de atributos dependiam de apenas uma parte dela:
+- `cod_emprestimo` → `data_emprestimo`, `matricula_leitor`, `data_devolucao`. Esses atributos foram para a tabela `emprestimo`.
+- `isbn` → `titulo`, `cod_editora`. Esses atributos foram para a tabela `livro`.
+  
+A ligação entre empréstimo e livro, que é de muitos para muitos, ficou na tabela `emprestimo_livro(cod_emprestimo, isbn)`, que guarda só a chave composta. Os atributos do leitor, do curso e da editora seguiram nas tabelas `emprestimo` e `livro`, e a 3FN trata deles.
 
-**3FN:** [quais dependências transitivas e como ficou]
+**3FN:** Sobraram dependências transitivas, em que um atributo não-chave determina outro:
+- Em `emprestimo`: `cod_emprestimo` → `matricula_leitor` → `nome_leitor`, `cod_curso`. Esses atributos foram para a tabela `leitor`.
+- Em `leitor`: `matricula_leitor` → `cod_curso` → `nome_curso`. O `nome_curso` foi para a tabela `curso`.
+- Em `livro`: `isbn` → `cod_editora` → `editora`. O nome da editora foi para a tabela `editora`.
 
-**Esquema final em 3FN:** [Tabela(atributos), com PK sublinhada ou em negrito e FK indicada]
+Com isso, cada atributo não-chave depende somente da chave, de toda a chave e de nada além dela. Os problemas da seção 1 deixam de existir:
+- Cadastrar um livro não exige empréstimo.
+- Excluir o empréstimo 9002 não apaga a leitora Lara Mendes nem o curso de Direito.
+- O nome da Alta Books fica em um único registro.
+
+**Esquema final em 3FN:** 
+- **curso**(<ins>cod_curso</ins>, nome_curso)
+- **editora**(<ins>cod_editora</ins>, editora)
+- **leitor**(<ins>matricula_leitor</ins>, nome_leitor, cod_curso) — FK: `cod_curso` → curso
+- **leitor_telefone**(<ins>matricula_leitor</ins>, <ins>telefone</ins>) — FK: `matricula_leitor` → leitor
+- **livro**(<ins>isbn</ins>, titulo, cod_editora) — FK: `cod_editora` → editora
+- **emprestimo**(<ins>cod_emprestimo</ins>, data_emprestimo, data_devolucao, matricula_leitor) — FK: `matricula_leitor` → leitor
+- **emprestimo_livro**(<ins>cod_emprestimo</ins>, <ins>isbn</ins>) — FKs: `cod_emprestimo` → emprestimo; `isbn` → livro
 
 ## 4. FNBC: `planilha_fnbc`
 
