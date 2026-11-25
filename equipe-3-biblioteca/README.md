@@ -84,9 +84,20 @@ Com isso, cada atributo não-chave depende somente da chave, de toda a chave e d
 
 ## 4. FNBC: `planilha_fnbc`
 
-- Chaves candidatas: [ ]
-- Dependência que viola a FNBC: [ ]
-- Decomposição: [ ]
+- **Chaves candidatas:** `(leitor, area)` e `(leitor, bibliotecario)`.
+
+- **Dependência que viola a FNBC:** `bibliotecario → area`. Cada bibliotecário atende a uma única área, porém o atributo bibliotecario não é uma superchave da tabela original, violando a Forma Normal de Boyce-Codd.
+
+- **Decomposição:** A tabela original foi dividida em duas tabelas:
+
+  - `bibliotecario(bibliotecario, area)` — PK: `bibliotecario`.
+  - `leitor_bibliotecario(leitor, bibliotecario)` — PK composta: `(leitor, bibliotecario)` e FK: `bibliotecario`.
+
+A decomposição permite reconstruir os dados originais sem perda de informação, eliminando a dependência que viola a FNBC.
+
+Os testes realizados no MySQL retornaram 4 registros na primeira tabela e 7 registros na segunda.
+
+A regra de um único bibliotecário por leitor em cada área deverá ser garantida adicionalmente, pois essa dependência não é preservada diretamente pela decomposição.
 
 ## 5. 4FN: `planilha_4fn`
 
@@ -121,4 +132,82 @@ Preencha o arquivo [`dicionario_dados.md`](dicionario_dados.md) com **todas** as
 
 ## 9. Desafio: uma decomposição errada
 
-[Mostre uma decomposição da `planilha_fnbc` que **perde** informação: as duas tabelas, a consulta de junção e quantas linhas falsas (tuplas espúrias) ela gera.]
+A decomposição incorreta da tabela `planilha_fnbc` foi realizada separando os atributos em duas tabelas:
+
+- `desafio_leitor_area(leitor, area)`
+- `desafio_leitor_bibliotecario(leitor, bibliotecario)`
+
+### Tabelas da decomposição incorreta
+
+**Tabela desafio_leitor_area:**
+
+| leitor | area |
+| --- | --- |
+| Pedro Costa | Exatas |
+| Pedro Costa | Humanas |
+| Lara Mendes | Humanas |
+| Lara Mendes | Saúde |
+| Iago Freitas | Exatas |
+| Nina Barros | Saúde |
+| Nina Barros | Exatas |
+
+**Tabela desafio_leitor_bibliotecario:**
+
+| leitor | bibliotecario |
+| --- | --- |
+| Pedro Costa | Helena |
+| Pedro Costa | Sônia |
+| Lara Mendes | Sônia |
+| Lara Mendes | Vera |
+| Iago Freitas | Otto |
+| Nina Barros | Vera |
+| Nina Barros | Helena |
+
+### Criação das tabelas temporárias
+
+```sql
+CREATE TEMPORARY TABLE desafio_leitor_area AS
+SELECT DISTINCT leitor, area
+FROM planilha_fnbc;
+
+CREATE TEMPORARY TABLE desafio_leitor_bibliotecario AS
+SELECT DISTINCT leitor, bibliotecario
+FROM planilha_fnbc;
+```
+
+### Consulta de junção
+
+```sql
+SELECT a.leitor, a.area, b.bibliotecario
+FROM desafio_leitor_area a
+JOIN desafio_leitor_bibliotecario b
+ON a.leitor = b.leitor;
+```
+
+### Consulta para identificar a quantidade de falsas tuplas
+
+```sql
+SELECT COUNT(*) AS falsas_tuplas
+FROM desafio_leitor_area a
+JOIN desafio_leitor_bibliotecario b
+ON a.leitor = b.leitor
+LEFT JOIN planilha_fnbc p
+ON a.leitor = p.leitor
+AND a.area = p.area
+AND b.bibliotecario = p.bibliotecario
+WHERE p.leitor IS NULL;
+```
+
+### Resultado obtido no MySQL
+
+| Descrição | Quantidade |
+| --- | --- |
+| Registros da tabela original | 7 |
+| Registros após a junção | 13 |
+| Falsas tuplas geradas | 6 |
+
+### Conclusão
+
+A decomposição incorreta gerou 6 tuplas espúrias, pois a junção pelo atributo leitor criou combinações entre áreas e bibliotecários que não existiam na tabela original.
+
+Embora os registros originais continuem presentes, a associação correta entre os atributos não pode ser recuperada exclusivamente pela junção dessas duas tabelas. Portanto, essa decomposição não possui a propriedade de junção sem perda.
