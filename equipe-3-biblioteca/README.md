@@ -1,4 +1,4 @@
-<img width="2040" height="2970" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/bc8652d7-0b03-4879-ab81-1e037e5577a3" /># Equipe 3: Biblioteca Saber
+# Equipe 3: Biblioteca Saber
 
 **Nome do time:** Equipe Murilo
 
