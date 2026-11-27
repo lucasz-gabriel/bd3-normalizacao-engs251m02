@@ -128,8 +128,6 @@ Preencha o arquivo [`dicionario_dados.md`](dicionario_dados.md) com **todas** as
 
 ## 8. Prova de junção sem perda
 
-[Cole aqui o resultado do `03_prova_sem_perda.sql`: para cada planilha, linhas da original, linhas da reconstruída, faltando = 0 e sobrando = 0.]
-
 <img src="https://github.com/user-attachments/assets/fc0bd405-4a0e-491b-aa10-9422d1589f0c" alt="Resultado da prova de junção sem perda" width="700">
 
 ## 9. Desafio: uma decomposição errada
