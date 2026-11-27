@@ -1,4 +1,4 @@
-# Equipe 3: Biblioteca Saber
+<img width="2040" height="2970" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/bc8652d7-0b03-4879-ab81-1e037e5577a3" /># Equipe 3: Biblioteca Saber
 
 **Nome do time:** Equipe Murilo
 
@@ -118,13 +118,15 @@ Os testes realizados no MySQL retornaram 4 registros na primeira tabela e 7 regi
 
 [Entidades, atributos (identificador sublinhado; multivalorado com elipse dupla), relacionamentos com nome e cardinalidade (mín, máx).]
 
-![Modelo conceitual](modelo_conceitual.png)
+![Modelo conceitual](<img width="2040" height="2970" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/83b06c22-fa2d-4ffa-84d1-ecc4b81d7e8a" />
+)
 
 ### 6.2 Modelo lógico (James Martin, pé de galinha)
 
 [Todas as tabelas finais com seus atributos, PK e FK, e as linhas de relacionamento com a cardinalidade nas pontas.]
 
-![Modelo lógico](modelo_logico.png)
+![Modelo lógico](<img width="1098" height="522" alt="Captura de tela 2026-11-26 200050" src="https://github.com/user-attachments/assets/aac0a8c6-fbd7-4624-a489-81bce0800666" />
+)
 
 ## 7. Dicionário de dados
 
