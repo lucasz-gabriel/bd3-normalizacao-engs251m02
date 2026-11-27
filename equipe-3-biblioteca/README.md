@@ -116,17 +116,11 @@ Os testes realizados no MySQL retornaram 4 registros na primeira tabela e 7 regi
 
 ### 6.1 Modelo conceitual (Peter Chen)
 
-[Entidades, atributos (identificador sublinhado; multivalorado com elipse dupla), relacionamentos com nome e cardinalidade (mín, máx).]
-
-![Modelo conceitual](<img width="2040" height="2970" alt="modelo_conceitual" src="https://github.com/user-attachments/assets/83b06c22-fa2d-4ffa-84d1-ecc4b81d7e8a" />
-)
+<img src="https://github.com/user-attachments/assets/83b06c22-fa2d-4ffa-84d1-ecc4b81d7e8a" alt="Modelo conceitual (Peter Chen)" width="600">
 
 ### 6.2 Modelo lógico (James Martin, pé de galinha)
 
-[Todas as tabelas finais com seus atributos, PK e FK, e as linhas de relacionamento com a cardinalidade nas pontas.]
-
-![Modelo lógico](<img width="1098" height="522" alt="Captura de tela 2026-11-26 200050" src="https://github.com/user-attachments/assets/aac0a8c6-fbd7-4624-a489-81bce0800666" />
-)
+<img src="https://github.com/user-attachments/assets/aac0a8c6-fbd7-4624-a489-81bce0800666" alt="Modelo lógico (James Martin)" width="800">
 
 ## 7. Dicionário de dados
 
